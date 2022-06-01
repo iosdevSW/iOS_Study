@@ -49,8 +49,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // 앱이 포그라운드 일 때
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
-        
-        print("UserInfo: \(userInfo) at willPresent")
+       
+        print("UserInfo: \(userInfo) at willPresent\n aabb\n")
         
         completionHandler([.sound, .banner])
     }
@@ -58,13 +58,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // 앱이 백그라운드 일 때 노티 알림 노티를 터치할 때 호출됨
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        print("UserInfo: \(userInfo) at didReceive")
+        print("UserInfo: \(userInfo) at didReceive ")
+        
         
         completionHandler()
     }
     // 백그라운드시 푸쉬
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        print("UserInfo: \(userInfo) at background push")
+        print("UserInfo: \(userInfo) at background push \n")
         
         completionHandler(.noData)
     }
