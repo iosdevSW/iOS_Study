@@ -110,7 +110,27 @@ extension ViewController: SFSpeechRecognizerDelegate {
         }
                
         self.textView.text = "Say something, I'm listening!"
-           
-        
+    }
+    
+    
+}
+
+
+class Test: Equatable {
+    static func == (lhs: Test, rhs: Test) -> Bool {
+        return lhs.num == rhs.num
+    }
+    
+    public static func != (lhs: Test, rhs: Test) -> Bool {
+        return lhs.num != rhs.num
+    }
+    
+    var num: Int
+    
+    init(_ num: Int) {
+        self.num = num
     }
 }
+
+
+
