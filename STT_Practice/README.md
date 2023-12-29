@@ -7,6 +7,6 @@
 - SPEECH
 
 
-> Notion 정리 : https://working-melody-26f.notion.site/STT-Speech-to-Text-d0dbe9936bd242108c422ce759cb3d34   
+> Notion 정리 : https://iosdevsw.notion.site/STT-Speech-to-Text-d0dbe9936bd242108c422ce759cb3d34?pvs=4 
 
 > 참고        : https://zeddios.tistory.com/45
