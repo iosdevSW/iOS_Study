@@ -18,7 +18,7 @@ struct ContentView: View {
         Palette.init(id: UUID(), color: .black),
     ]
     
-    @State private var mainID: Palette.ID? // ✅ 모델 ID
+    @State private var mainID: Palette.ID?
     
     var body: some View {
         ScrollView(.horizontal) {
@@ -28,12 +28,18 @@ struct ContentView: View {
                         .aspectRatio(4.0/3.0, contentMode: .fit)
                         .containerRelativeFrame(.horizontal)
                 }
+                .scrollTransition(axis: .horizontal) { content, phase in
+                    content
+                        .scaleEffect(
+                            x: phase.isIdentity ? 1.0 : 0.80,
+                            y: phase.isIdentity ? 1.0 : 0.80)
+                }
             }
             .scrollTargetLayout()
         }
         .contentMargins(hMargin , for: .scrollContent)
         .scrollTargetBehavior(.viewAligned)
-        .scrollPosition(id: $mainID) // ✅ ID에 해당하는 콘텐츠로 스크롤
+        .scrollPosition(id: $mainID)
         
         Button {
             scrollToPreviousID()
@@ -42,7 +48,6 @@ struct ContentView: View {
         }
     }
     
-    // ✅ 이전 ID로 스크롤
     private func scrollToPreviousID() {
         guard let id = mainID, id != palettes.first?.id,
               let index = palettes.firstIndex(where: { $0.id == id })
